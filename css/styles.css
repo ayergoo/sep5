@@ -1,0 +1,43 @@
+.search-bar {
+    margin-left:20px;
+    margin-top:5px;
+}
+
+.navbar-nav {
+    margin-left: 25px;
+}
+
+.navbar-nav li {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.logo {
+    display: block;
+    max-height: 50px;
+    max-width: 100px;
+    margin-left:30px;
+}
+
+#myCarousel {
+    margin-top:20px;
+}
+
+#myCarousel h2 {
+    margin-left:10px;
+}
+
+#myCarousel img {
+    width: 300px;
+    height: 300px;
+}
+
+#shop-by-category img {
+    width:150px;
+    height:150px;
+}
+
+.p-2 {
+    margin-left:20px;
+    margin-right:20px;
+}
