@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+    <product>
+        <id>1</id>
+        <name>White Hand Bag with a knit handle</name>
+        <seller>Aleks</seller>
+        <description>This is a handmade bag with a knitwear handle</description>
+        <price>369.99</price>
+        <category>Bags</category>
+        <image>carousel_bag.png</image>
+        <availability>20</availability>
+    </product>
+    <product>
+        <id>2</id>
+        <name>Knit Bracelet 2-pack</name>
+        <seller>Caiko</seller>
+        <description>Spring Knit Bracelets in warm colours 2-pack</description>
+        <price>79.99</price>
+        <category>Accessories</category>
+        <image>carousel_bracelet.jpg</image>
+        <availability>100</availability>
+    </product>
+    <product>
+        <id>3</id>
+        <name>White Sweater Knit</name>
+        <seller>Caiko</seller>
+        <description>Hand-made white sweater warm for winter</description>
+        <price>299.99</price>
+        <category>Clothes</category>
+        <image>carousel_sweater.png</image>
+        <availability>4</availability>
+    </product>
+    <product>
+        <id>4</id>
+        <name>Curtain Pompon</name>
+        <seller>jabadahut</seller>
+        <description>Bohemian Handmade Pompon Rainbow Tassel Curtain Accessories</description>
+        <price>149.99</price>
+        <category>Accessories</category>
+        <image>curtain_pompon.jpg</image>
+        <availability>1</availability>
+    </product>
+    <product>
+        <id>5</id>
+        <name>Wooden Present Box</name>
+        <seller>jabadahut</seller>
+        <description>Wooden present box with engraved name</description>
+        <price>349.99</price>
+        <category>Wood</category>
+        <image>wooden_present_box.png</image>
+        <availability>20</availability>
+    </product>
+    <product>
+        <id>6</id>
+        <name>Handmade bag</name>
+        <seller>jabadahut</seller>
+        <description>Nice bag, colorful and handmade</description>
+        <price>299.99</price>
+        <category>Bags</category>
+        <image>category_bags.jpg</image>
+        <availability>20</availability>
+    </product>
+    <product>
+        <id>7</id>
+        <name>Knit Hat in many colors</name>
+        <seller>jabadahut</seller>
+        <description>Knit Hat hand made choose color</description>
+        <price>129.99</price>
+        <category>Accessories</category>
+        <image>knit_hat.jpg</image>
+        <availability>200</availability>
+    </product>
+    <product>
+        <id>8</id>
+        <name>Handmade wooden Necklace</name>
+        <seller>jabadahut</seller>
+        <description>Handmade wooden pendant necklace unique couple jewelry accessories for women men</description>
+        <price>249.99</price>
+        <category>Accessories,Wood</category>
+        <image>wooden_necklace.png</image>
+        <availability>50</availability>
+    </product>
+</products>
