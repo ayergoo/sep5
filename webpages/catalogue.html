@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your E-commerce Store</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <link href="../css/catalogue.css" type="text/css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header>
+            <div id="navbar-placeholder"></div>
+            <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                fetch('partial/navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                });
+            });
+            </script>
+        </header>
+
+
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 col-lg-3">
+                        <h3>Filters</h3>
+                        <form id="filter-form">
+                            <h5>Category</h5>
+
+                            <div id="category-filters"></div>
+                            
+                            <h5>Price Range</h5>
+                            <input type="range" class="form-range" id="price-range" min="0" max="1000" step="10">
+                            <p>Price: <span id="price-value">0 - 1000</span></p>
+                    
+                            <button type="submit" class="btn btn-primary">Apply Filters</button>
+                        </form>
+                    </div>
+                    
+        
+                    <div class="col-md-8 col-lg-9">
+                        <div class="row" id="products-grid">
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        <footer>
+            <p>Contact us: info@yourecommercestore.com</p>
+            <p>Follow us on social media</p>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="../js/loadProducts.js"></script>
+        <script type="module" src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
