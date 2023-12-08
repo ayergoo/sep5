@@ -41,3 +41,26 @@
     margin-left:20px;
     margin-right:20px;
 }
+/* Your existing CSS styles... */
+
+/* Add these styles for account links */
+.navbar-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav li {
+    margin-left: 20px;
+}
+
+.account-links {
+    margin-right: 30px;
+}
+
+.account-links a {
+    text-decoration: none;
+    color: #333;
+}
+
+
