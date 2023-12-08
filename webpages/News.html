@@ -8,32 +8,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="../css/styles.css" type="text/css" rel="stylesheet">
-    <script type="module" src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Link to CSS file -->
+    <link href="../css/catalogue.css" type="text/css" rel="stylesheet"/>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm bg-light navbar-light">
-            <a href="../index.html"><img src="../images/logo_text_navbar.png" class="logo"></a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <!-- <a class="navbar-brand" href="#">Hand-made</a> -->
-                <ul class="navbar-nav">
-                    <li><a class="nav-link" href="../index.html">Home</a></li>
-                    <li><a class="nav-link" href="#products">Products</a></li>
-                    <li><a class="nav-link active" href="#News">News</a></li>
-                    <li><a class="nav-link" href="#about">About Us</a></li>
-                    <li><a class="nav-link" href="#contact">Contact</a></li>
-                    <li><input class="search-bar" type="text" placeholder="Search..."></li>
-                </ul>
-            </div>
-        </nav>
+        <div id="navbar-placeholder"></div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                fetch('partial/navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                });
+            });
+            </script>
         <!-- <img src="../images/news.jpg" alt="background image" id="news-bg"> -->
     </header>
         <br>
