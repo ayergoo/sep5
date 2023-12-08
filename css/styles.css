@@ -62,5 +62,23 @@
     text-decoration: none;
     color: #333;
 }
+/* Footer Styles */
+
+footer {
+    background-color: #e97a61;
+    padding: 1em;
+    text-align: center;
+    position: relative;
+  }
+  
+  .copyright {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #ccc;
+  }
+  
 
 

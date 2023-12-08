@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your E-commerce Store</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="css/styles.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm bg-light navbar-light">
-            <a href="#"><img src="images/logo_text_navbar.png" class="logo"></a>
+            <a href="#"><img src="images/logo_text_navbar.png" class="logo" alt="Logo"></a>
             <ul class="navbar-nav">
                 <li><a class="nav-link active" href="#">Home</a></li>
                 <li><a class="nav-link" href="#products">Products</a></li>
@@ -20,14 +18,16 @@
                 <li><a class="nav-link" href="#contact">Contact</a></li>
                 <li><input class="search-bar" type="text" placeholder="Search..."></li>
                 <li><a class="nav-link" href="#cart">Cart</a></li>
-                <li><a class="nav-link" href="#" id="loginLink">Login/Sign Up</a></li>
+                <li><a class="nav-link" href="#" id="loginLink">Login</a></li>
+                <li><a class="nav-link" href="#" id="registerLink">Register</a></li>
             </ul>
         </nav>
+
+        
 
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
             <h2>Most popular products:</h2>
             <div class="carousel-inner">
-                <!-- Wrapper for slides -->
                 <div class="carousel-item active">
                     <img class="d-block img-fluid mx-auto" src="images/carousel_bracelet.jpg" alt="elephant">
                 </div>
@@ -39,48 +39,37 @@
                 </div>
             </div>
             <ul class="carousel-indicators">
-                <!-- Indicators -->
                 <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
                 <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
                 <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
             </ul>
         </div>
 
-        <!-- Shop by Category Section -->
         <section id="shop-by-category" class="py-5">
             <div class="container">
                 <h2 class="text-center mb-4">Shop by Category</h2>
-                <!-- Category Links in Flexbox Layout -->
                 <div class="d-flex flex-wrap justify-content-center">
-                    <!-- Category 1 -->
                     <div class="p-2">
                         <a href="/products?category=bags" class="d-block link-dark text-decoration-none">
                             <img src="images/category_bags.jpg" class="img-fluid mb-2" alt="Category 1">
                             <h3 class="text-center">Bags</h3>
                         </a>
                     </div>
-                    <!-- Category 2 -->
                     <div class="p-2">
                         <a href="/products?category=clothes" class="d-block link-dark text-decoration-none">
                             <img src="images/category_clothes.jpg" class="img-fluid mb-2" alt="Category 2">
                             <h3 class="text-center">Clothes</h3>
                         </a>
                     </div>
-                    <!-- Category 3 -->
                     <div class="p-2">
                         <a href="/products?category=accessories" class="d-block link-dark text-decoration-none">
                             <img src="images/category_accessories.jpg" class="img-fluid mb-2" alt="Category 3">
                             <h3 class="text-center">Accessories</h3>
                         </a>
                     </div>
-                    <!-- More categories can be added here following the same pattern -->
                 </div>
             </div>
         </section>
-
-        <div class="account-links">
-            <a href="#" id="loginLink">Login/Sign Up</a>
-        </div>
     </header>
 
     <main>
@@ -99,24 +88,49 @@
     </main>
 
     <footer>
-        <p>Contact us: info@yourecommercestore.com</p>
-        <p>Follow us on social media</p>
-        <!-- Social media links -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h5>Contact Us</h5>
+                    <address>
+                        <p>Address: Aarhus</p>
+                        <p>Phone: +455521128</p>
+                        <p>Email: hub.com (shop:info@example.com)</p>
+                    </address>
+                </div>
+                <div class="col-sm-4">
+                    <h5>Navigation</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h5>Connect With Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" target="_blank"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p>&copy; 2023 Example Company. All rights reserved.</p>
+        </div>
     </footer>
 
-    <!-- Login/Sign Up Modal -->
+    
+
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Login/Sign Up</h5>
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModal">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <!-- Your login/signup form goes here -->
-                    <!-- Example form: -->
                     <form>
                         <div class="form-group">
                             <label for="username">Username</label>
@@ -134,24 +148,84 @@
         </div>
     </div>
 
-    <!-- JavaScript Libraries -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeRegisterModal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="registerUsername">Username</label>
+                            <input type="text" class="form-control" id="registerUsername" placeholder="Enter your username">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Enter your password">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email Address</label>
+                            <input type="email" class="form-control" id="registerEmail" placeholder="Enter your email address">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerAge">Age</label>
+                            <input type="number" class="form-control" id="registerAge" placeholder="Enter your age">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerGender">Gender</label>
+                            <select class="form-control" id="registerGender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerFirstName">First Name</label>
+                            <input type="text" class="form-control" id="registerFirstName" placeholder="Enter your first name">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerLastName">Last Name</label>
+                            <input type="text" class="form-control" id="registerLastName" placeholder="Enter your last name">
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="userType" id="customerRadio" checked>
+                            <label class="form-check-label" for="customerRadio">Register as Customer</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="userType" id="sellerRadio">
+                            <label class="form-check-label" for="sellerRadio">Register as Seller</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeRegisterModal">Close</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Activate the modal when the "Login/Sign Up" link is clicked -->
     <script>
         document.querySelector('#loginLink').addEventListener('click', function () {
             $('#loginModal').modal('show');
         });
 
-        // Close the modal when the "Close" button is clicked
+        document.querySelector('#registerLink').addEventListener('click', function () {
+            $('#registerModal').modal('show');
+        });
+
         document.querySelector('#closeModal').addEventListener('click', function () {
             $('#loginModal').modal('hide');
         });
 
-        // Close the modal when the "Close" button next to login is clicked
-        document.querySelector('#closeModalNextToLogin').addEventListener('click', function () {
-            $('#loginModal').modal('hide');
+        document.querySelector('#closeRegisterModal').addEventListener('click', function () {
+            $('#registerModal').modal('hide');
         });
     </script>
 </body>
