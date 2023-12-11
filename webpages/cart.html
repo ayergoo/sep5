@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your E-commerce Store</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <link href="../css/cart.css" type="text/css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header>
+            <div id="navbar-placeholder"></div>
+            <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                fetch('partial/navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                });
+            });
+            </script>
+        </header>
+
+        <div id="products-grid">
+
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            displayCart();
+            function displayCart() {
+                let totalCost = 0;
+                let cart = localStorage.getItem('cart');
+                if (cart) {
+                    // Split the cart string into an array of product IDs
+                    cart = cart.split('},');
+
+                    cart.forEach(element => {
+                        if (element[element.length-1]!='}'){
+                            console.log(element)
+                            element = element.concat('}');
+                            console.log(element)
+                        }
+                        element = JSON.parse(element);
+                        totalCost += Number(element.cost);
+                        var productHtml = '<div class="col-md-4 mb-4">' +
+                            // '<div class="card">' +
+                                '<div class="card" data-price="' + element.price + '" data-category="' + element.category +'" data-id="' + element.id +'">' +
+                                    '<img src="../images/' + element.image + '" class="card-img-top" alt="' + element.name + '">' +
+                                    '<div class="card-body">' +
+                                        '<a href="product-detail.html?id=' + element.id + '" class="card-link">' +
+                                              '<h5 class="card-title">' + element.name + '</h5>' +
+                                            //   '<p class="card-text">' + description + '</p>' +
+                                              '<p class="card-text">Price: ' + element.price + ' DKK</p>' +
+                                              '</a></div>' +
+                                              '<button class="position-right">Remove</button>' +
+                                              '</div>' +
+                                              '</div>';
+                
+                                  $('#products-grid').append(productHtml);  
+                                });
+                                $('#addToCartButton').data('totalCost', totalCost); 
+                } else {
+                    console.log("Cart is empty");
+                }
+
+            }
+        </script>
+    </body>
+    </html>

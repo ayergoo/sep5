@@ -1,0 +1,41 @@
+.product-cell {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-cell .card-body {
+
+    flex-grow: 1;
+}
+
+.card-img-top {
+
+    width: 20%;
+    height: 20%;
+    /* height: auto; maintain aspect ratio */
+}
+
+/* .card {
+    margin-left: 200px;
+    margin-top: 70px;
+
+    height: 100%; /* make card fill container */
+
+
+
+.card-link {
+    text-decoration: none; /* Removes the underline */
+    color: inherit; /* Optional: ensures the text color is the same as its container */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Aligns children (content and button) */
+}
+
+/* Style for the remove button */
+.position-right {
+    align-self: flex-end; /* Aligns the button to the right */
+    margin: 10px; /* Optional: adds some margin around the button */
+}
