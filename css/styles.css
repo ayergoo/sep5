@@ -20,9 +20,6 @@
     margin-left:20px;
     margin-right:20px;
 }
-/* Your existing CSS styles... */
-
-/* Add these styles for account links */
 
 /* .to-the-left {
     margin-left:20px;
@@ -69,12 +66,27 @@ footer {
   }
   
   
-
   .article-container {
     margin:80px 200px 200px 200px;
 }
 
 .article-container img {
     min-width:100%;
+}
 
+
+.list-unstyled img {
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.icon-row {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin-top:20px;
+}
+
+.icon-row li {
+    margin: 0 10px 0 10px;
 }
