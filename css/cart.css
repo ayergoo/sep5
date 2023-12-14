@@ -28,6 +28,11 @@
     color: inherit; /* Optional: ensures the text color is the same as its container */
 }
 
+#products-grid {
+    margin-left:100px;
+    margin-top:50px;
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -38,4 +43,10 @@
 .position-right {
     align-self: flex-end; /* Aligns the button to the right */
     margin: 10px; /* Optional: adds some margin around the button */
+}
+
+#total-cost {
+    margin-top:200px;
+    font-weight: bold;
+    margin-right:600px;
 }

@@ -53,16 +53,24 @@ footer {
     padding: 1em;
     text-align: center;
     position: relative;
-  }
-  
-  .copyright {
+}
+
+.copyright {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     text-align: center;
     color: #ccc;
-  }
+}
   
 
 
+.article-container {
+    margin:80px 200px 200px 200px;
+}
+
+.article-container img {
+    min-width:100%;
+
+}

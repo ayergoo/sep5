@@ -23,29 +23,87 @@
             </script>
         </header>
 
-        <div id="products-grid">
-
+        <div style="display: flex;">
+            <div style="flex: 2;" id="products-grid">
+            </div>
+        
+            <div style="flex: 1;" id="total-cost">
+            </div>
         </div>
-
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
             displayCart();
+            displayTotalCost();
+            function displayTotalCost() {
+                let totalCost = localStorage.getItem('totalCost');
+
+                if (totalCost) {
+                    $('#total-cost').text('Total Cost: ' + totalCost + ' DKK');
+                } else {
+                    console.log("No total cost data found in localStorage.");
+                }
+            }
+            function removeFromCart(productId) {
+                let parsed_cart = []
+                console.log('productID: ', productId);
+                let cart = localStorage.getItem('cart');
+                if (cart) {
+
+                    cart = cart.split('},');
+
+                    if (cart.length >1){    
+                        cart.forEach(element => {
+                            if (element[element.length-1]!='}'){
+                                console.log(element);
+                                element = element.concat('}');
+                            }
+                            element = JSON.parse(element);
+
+                            parsed_cart.push(element);
+                        });
+                    }
+                    else {
+                        parsed_cart.push(JSON.parse(cart));
+                    };
+
+
+                filtered_cart = parsed_cart.filter(item => item['id'] !== productId)
+
+                var totalCost = 0;
+
+                filtered_cart.forEach((element) => totalCost += Number(element['price']));
+
+                localStorage.setItem('totalCost', totalCost.toString());
+                
+                filtered_cart = filtered_cart.map(element => JSON.stringify(element));
+
+                joined_cart_items = filtered_cart.length == 0 ? [] : filtered_cart.join(',');
+
+                localStorage.setItem('cart', joined_cart_items);
+
+                console.log('Cart after removal:', filtered_cart);
+
+                displayCart();
+                displayTotalCost();
+                }
+            }
             function displayCart() {
+                $('#products-grid').empty();
                 let totalCost = 0;
                 let cart = localStorage.getItem('cart');
                 if (cart) {
-                    // Split the cart string into an array of product IDs
+
                     cart = cart.split('},');
 
                     cart.forEach(element => {
+                        console.log(element);
                         if (element[element.length-1]!='}'){
-                            console.log(element)
                             element = element.concat('}');
-                            console.log(element)
+                            console.log(element);
                         }
                         element = JSON.parse(element);
-                        totalCost += Number(element.cost);
+                        totalCost += Number(element.price);
                         var productHtml = '<div class="col-md-4 mb-4">' +
                             // '<div class="card">' +
                                 '<div class="card" data-price="' + element.price + '" data-category="' + element.category +'" data-id="' + element.id +'">' +
@@ -56,17 +114,18 @@
                                             //   '<p class="card-text">' + description + '</p>' +
                                               '<p class="card-text">Price: ' + element.price + ' DKK</p>' +
                                               '</a></div>' +
-                                              '<button class="position-right">Remove</button>' +
+                                              '<button class="position-right" onclick="removeFromCart(\'' + element.id + '\')">Remove</button>' +
                                               '</div>' +
                                               '</div>';
                 
                                   $('#products-grid').append(productHtml);  
                                 });
-                                $('#addToCartButton').data('totalCost', totalCost); 
-                } else {
-                    console.log("Cart is empty");
-                }
-
+                            } else {
+                                $('#products-grid').append('<h2 style="margin-left=100px;margin-top=50px;">Cart is empty</h2>')
+                                console.log("Cart is empty");
+                            }
+                            
+                localStorage.setItem('totalCost', totalCost.toString());
             }
         </script>
     </body>
