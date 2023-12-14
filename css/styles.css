@@ -46,8 +46,12 @@
     text-decoration: none;
     color: #333;
 }
-/* Footer Styles */
-
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
 footer {
     background-color: #e97a61;
     padding: 1em;
@@ -61,12 +65,12 @@ footer {
     left: 0;
     width: 100%;
     text-align: center;
-    color: #ccc;
-}
+    color: #ffffff;
+  }
+  
   
 
-
-.article-container {
+  .article-container {
     margin:80px 200px 200px 200px;
 }
 

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/contact.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm bg-light navbar-light">
+            <a href="index.html"><img src="../images/logo_text_navbar.png" class="logo" alt="Logo"></a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+            
+            <ul class="navbar-nav">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class="nav-link" href="catalogue.html">Products</a></li>
+                <li><a class="nav-link" href="News.html">News</a></li>
+                <li><a class="nav-link" href="about.html">About Us</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
+                <li><input class="search-bar" type="text" placeholder="Search..."></li>
+                <li><a class="nav-link" href="#cart">Cart</a></li>
+                <li><a class="nav-link" href="#" id="loginLink">Login</a></li>
+                <li><a class="nav-link" href="#" id="registerLink">Register</a></li>
+            </ul>
+        </nav>
+    <main>
+        <section class="contact-information">
+            <h2>Contact Information</h2>
+            <p>Address: Aarhus</p>
+            <p>Phone: +455521128</p>
+            <p>Email:  <a class="nav-link" href="mailto:handmade@support.com">handmade@support.com </a>
+                <a class="nav-link" href="mailto:shop:info@handmade.com">shop:info@handmade.com </a>
+              
+        
+        </section>
+
+        <section class="direct-chat">
+            <h2>Direct Chat</h2>
+            <textarea id="messageInput" rows="4" cols="50" placeholder="Type your message here..."></textarea>
+            <button id="sendMessageBtn" onclick="sendMessage()">Send</button>
+        </section>
+        <div class="col-md-4">
+            <section class="right-image">
+                <img src="..\images\contact-banner-2.jpg" alt="Description of the image" class="img-fluid">
+            </section>
+        </div>
+    </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h5>Contact Us</h5>
+                    <address>
+                        <p>Address: Aarhus</p>
+                        <p>Phone: +455521128</p>
+                        <p>Email: handmade@support.com (shop:info@handmade.com)</p>
+                    </address>
+                </div>
+                <div class="col-sm-4">
+                    <h5>Navigation</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="catalogue.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h5>Connect With Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" target="_blank"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p>&copy; 2023 Handmade Company. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function sendMessage() {
+            var message = document.getElementById('messageInput').value;
+            console.log("Message sent:", message);
+          
+        }
+    </script>
+</body>
+</html>
