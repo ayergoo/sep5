@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+    <user>
+        <id>1</id>
+        <user_name>Aleks</user_name>
+        <password>1234</passwrod>
+        <email>aleks@gmail.com</email>
+        <age>20</age>
+        <gender>male</gender>
+        <first_name>Aleks</first_name>
+        <last_name>Johnson</last_name>
+        <cart>1,2,3,4</cart>
+    </user>
+    <user>
+        <id>2</id>
+        <user_name>Caiko</user_name>
+        <password>5678</passwrod>
+        <email>caiko@gmail.com</email>
+        <age>21</age>
+        <gender>Male</gender>
+        <first_name>John</first_name>
+        <last_name>Doe</last_name>
+        <cart>3,4</cart>
+    </user>
+    <user>
+        <id>3</id>
+        <user_name>jabadahut</user_name>
+        <password>2345</passwrod>
+        <email>jaba@gmail.com</email>
+        <age>50</age>
+        <gender>Female</gender>
+        <first_name>Jaba</first_name>
+        <last_name>Dahut</last_name>
+        <cart>4</cart>
+    </user>
+</users>

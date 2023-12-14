@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your E-commerce Store</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <link href="../css/cart.css" type="text/css" rel="stylesheet"/>
+        <link rel="stylesheet" href="../css/styles.css">
+
+    </head>
+    <body>
+        <header>
+            <div id="navbar-placeholder"></div>
+            <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                fetch('partial/navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                });
+            });
+            </script>
+        </header>
+
+        <div style="display: flex;">
+            <div style="flex: 2;" id="products-grid">
+            </div>
+        
+            <div style="flex: 1;" id="total-cost">
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            displayCart();
+            displayTotalCost();
+            function displayTotalCost() {
+                let totalCost = localStorage.getItem('totalCost');
+
+                if (totalCost) {
+                    $('#total-cost').text('Total Cost: ' + totalCost + ' DKK');
+                } else {
+                    console.log("No total cost data found in localStorage.");
+                }
+            }
+            function removeFromCart(productId) {
+                let parsed_cart = []
+                console.log('productID: ', productId);
+                let cart = localStorage.getItem('cart');
+                if (cart) {
+
+                    cart = cart.split('},');
+
+                    if (cart.length >1){    
+                        cart.forEach(element => {
+                            if (element[element.length-1]!='}'){
+                                console.log(element);
+                                element = element.concat('}');
+                            }
+                            element = JSON.parse(element);
+
+                            parsed_cart.push(element);
+                        });
+                    }
+                    else {
+                        parsed_cart.push(JSON.parse(cart));
+                    };
+
+
+                filtered_cart = parsed_cart.filter(item => item['id'] !== productId)
+
+                var totalCost = 0;
+
+                filtered_cart.forEach((element) => totalCost += Number(element['price']));
+
+                localStorage.setItem('totalCost', totalCost.toString());
+                
+                filtered_cart = filtered_cart.map(element => JSON.stringify(element));
+
+                joined_cart_items = filtered_cart.length == 0 ? [] : filtered_cart.join(',');
+
+                localStorage.setItem('cart', joined_cart_items);
+
+                console.log('Cart after removal:', filtered_cart);
+
+                displayCart();
+                displayTotalCost();
+                }
+            }
+            function displayCart() {
+                $('#products-grid').empty();
+                let totalCost = 0;
+                let cart = localStorage.getItem('cart');
+                if (cart) {
+
+                    cart = cart.split('},');
+
+                    cart.forEach(element => {
+                        console.log(element);
+                        if (element[element.length-1]!='}'){
+                            element = element.concat('}');
+                            console.log(element);
+                        }
+                        element = JSON.parse(element);
+                        totalCost += Number(element.price);
+                        var productHtml = '<div class="col-md-4 mb-4">' +
+                            // '<div class="card">' +
+                                '<div class="card" data-price="' + element.price + '" data-category="' + element.category +'" data-id="' + element.id +'">' +
+                                    '<img src="../images/' + element.image + '" class="card-img-top" alt="' + element.name + '">' +
+                                    '<div class="card-body">' +
+                                        '<a href="product-detail.html?id=' + element.id + '" class="card-link">' +
+                                              '<h5 class="card-title">' + element.name + '</h5>' +
+                                            //   '<p class="card-text">' + description + '</p>' +
+                                              '<p class="card-text">Price: ' + element.price + ' DKK</p>' +
+                                              '</a></div>' +
+                                              '<button class="position-right" onclick="removeFromCart(\'' + element.id + '\')">Remove</button>' +
+                                              '</div>' +
+                                              '</div>';
+                
+                                  $('#products-grid').append(productHtml);  
+                                });
+                            } else {
+                                $('#products-grid').append('<h2 style="margin-left=100px;margin-top=50px;">Cart is empty</h2>')
+                                console.log("Cart is empty");
+                            }
+                            
+                localStorage.setItem('totalCost', totalCost.toString());
+            }
+        </script>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>Contact Us</h5>
+                <address>
+                    <p>Address: Aarhus</p>
+                    <p>Phone: +455521128</p>
+                    <p>Email: handmade@support.com (shop:info@handmade.com)</p>
+                </address>
+            </div>
+            <div class="col-sm-4">
+                <h5>Navigation</h5>
+                <ul class="list-unstyled">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="catalogue.html">Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <h5>Connect With Us</h5>
+                <ul class="list-unstyled icon-row">
+                    <li><a href="facebook.com" target="_blank">
+                        <img src="../images/fbicon.png">
+                    </a></li>
+                    <li><a href="instagram.com" target="_blank">
+                        <img src="../images/ig icon.png">
+                    </a></li>
+                    <li><a href="x.com" target="_blank">
+                        <img src="../images/xicon.png">
+                    </a></li>
+                    <li><a href="linkedin.com" target="_blank">
+                        <img src="../images/linkedinicon.png">
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p>&copy; 2023 Handmade Company. All rights reserved.</p>
+    </div>
+</footer>
+
+
+</body>
+    </html>
